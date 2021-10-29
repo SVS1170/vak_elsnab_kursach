@@ -12,6 +12,19 @@ from datetime import datetime, timedelta, timezone
 
 APP_DIR = os.path.dirname(os.path.realpath(__file__))
 
+def compute_light(A, B, H, hp, hc):
+    h = H-hp-hc
+    i = (A*B)/(H*(A+B))
+    print("Веденные данные :")
+    print("A = "+str(A))
+    print("B = "+str(B))
+    print("H = "+str(H))
+    print("hp = "+str(hp))
+    print("hc = "+str(hc))
+    print("Резултат расчета :")
+    print("h = "+str(h))
+    print("light index = "+str(i))
+
 def read(name):
     config = configparser.ConfigParser()
     config.read("config.ini")  # читаем конфиг
@@ -86,4 +99,5 @@ def test1():
         print('')
 
 # test1()
-read("test")
+# read("test")
+compute_light(A=56, B=56, H=10, hp=0.1, hc=0.2)
